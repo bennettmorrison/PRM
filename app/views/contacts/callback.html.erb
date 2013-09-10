@@ -1,0 +1,10 @@
+<h1>Contacts</h1>
+<p1>Obtained from <%= params[:importer] %> </p>
+
+<% if !@contacts.nil?%>
+	<% @contacts.each do |c|%>
+	<ul>
+		<li><%= c[:name]%> : 	<%= c[:email]%></li>
+	</ul>	
+	<%end%>
+<%end%>

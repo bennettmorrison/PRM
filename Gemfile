@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+gem "omnicontacts"
+
+# # Added omniauth with Google strategy
+# gem "omniauth-google-oauth2"
+
 # Added devise
 gem 'devise'
 

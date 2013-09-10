@@ -37,3 +37,9 @@ body {
   font-size: 14px;
   color: #000000;
 }
+
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+  color: #707070;
+}
