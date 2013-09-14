@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 # # Added omnicontacts and got a working version.
 # gem "omnicontacts"
 
+# Added these based on Google parsing strategy
+gem "nokogiri"
+gem "json"
+
 # # Added omniauth with Google strategy
 gem "omniauth-google-oauth2"
 

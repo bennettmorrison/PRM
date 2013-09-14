@@ -5,6 +5,7 @@ class ContactsController < ApplicationController
 	end
 
 	def callback
+		@googlecontacts = GoogleContact.all
 	end
 
 end
