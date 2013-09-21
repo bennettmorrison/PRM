@@ -1,5 +1,16 @@
 <h1>Contact Manager</h1>
 
+<div class="hero-unit">
 <p>This app is designed to manage contacts and relationships.</p>
-
-<p><%= link_to('Get Gmail Contacts', 'contacts/gmail') %></p>
+	<% if app_user_signed_in? == true %>
+		<p>Now that you are signed in, you'll need to get some contacts: <div class="btn"><%= link_to('Get Gmail Contacts', 'contacts/gmail') %></div></p>
+	<% else %>
+		<p>First step is to get sign in:</p>
+		<div class="btn">
+    <%= link_to('Sign up', new_app_user_registration_path)  %>
+		</div>
+		<div class="btn">
+    <%= link_to('Login', new_app_user_session_path)  %>
+		</div>
+	<% end %>
+</div>

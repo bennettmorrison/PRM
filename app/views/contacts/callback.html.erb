@@ -1,10 +1,26 @@
 <h1>Contacts</h1>
-<p1>Obtained from <%= params[:importer] %> </p>
+<p1>Obtained from <%= @user %> </p>
+
+<p><%= link_to('Import these contacts', contacts_google_save_path) %></p>
 
 <% if !@contacts.nil?%>
-	<% @contacts.each do |c|%>
-	<ul>
-		<li><%= c[:name]%> : 	<%= c[:email]%></li>
-	</ul>	
+	<table>
+		<tr>
+		<th>Name</th>
+		<th>First</th>
+		<th>Last</th>
+		<th>Email</th>
+		<th>Birthday</th>
+		<th>Google Id</th>
+		</tr>
+		<% @contacts.each do |c|%>
+		<tr>
+		<td><%= c[:name]%></td>
+		<td><%= c[:first_name]%></td>
+		<td><%= c[:last_name]%></td>
+		<td><%= c[:email]%></td>
+		<td><%= c[:birthday]%></td>
+		<td><%= c[:id]%></td>
+		</tr>	
 	<%end%>
 <%end%>
