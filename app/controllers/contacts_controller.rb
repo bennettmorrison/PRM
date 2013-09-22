@@ -1,15 +1,20 @@
 class ContactsController < ApplicationController
-	before_filter :user_check, only: [:save]
+	before_filter :user_check, only: [:create]
 
 	def index
 	end
 
 	def callback
 		@contacts = request.env['omnicontacts.contacts']
-		@user = request.env['omnicontacts.user']
 	end
 
 	def save
+		@contacts = request.env['omnicontacts.contacts']
+		@contacts.each do |c|
+			contact = params.require(c[:name], :app_user_id).permit(c[:first_name], c[:last_name], c[:email])
+			UserContact.create contact
+		end
+		redirect_to 'save'
 	end
 
   def user_check
@@ -21,4 +26,8 @@ class ContactsController < ApplicationController
     end
   end
 
+
+
 end
+
+  

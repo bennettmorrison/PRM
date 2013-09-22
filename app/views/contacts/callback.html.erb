@@ -1,26 +1,23 @@
 <h1>Contacts</h1>
-<p1>Obtained from <%= @user %> </p>
+<p>Here's the contacts that we received.</p>
+<p>If these are the contacts you want, import them.  Otherwise, let's go back to the beginning.</p>
+<div class = "btn"><%= link_to('Import these contacts', contacts_google_save_path) %></div>
+<div class = "btn"><%= link_to('Start over', root_path) %></div>
+<p></p>
 
-<p><%= link_to('Import these contacts', contacts_google_save_path) %></p>
-
-<% if !@contacts.nil?%>
-	<table>
+<table class="table">
 		<tr>
 		<th>Name</th>
 		<th>First</th>
 		<th>Last</th>
 		<th>Email</th>
-		<th>Birthday</th>
-		<th>Google Id</th>
 		</tr>
-		<% @contacts.each do |c|%>
-		<tr>
-		<td><%= c[:name]%></td>
-		<td><%= c[:first_name]%></td>
-		<td><%= c[:last_name]%></td>
-		<td><%= c[:email]%></td>
-		<td><%= c[:birthday]%></td>
-		<td><%= c[:id]%></td>
-		</tr>	
-	<%end%>
-<%end%>
+			<% @contacts.each do |c|%>
+				<tr>
+				<td><%=c[:name]%></td>
+				<td><%=c[:first_name]%></td>
+				<td><%=c[:last_name]%></td>
+				<td><%=c[:email]%></td>
+				</tr>	
+			<%end%>
+</table>
