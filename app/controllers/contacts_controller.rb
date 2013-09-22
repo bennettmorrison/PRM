@@ -1,32 +1,18 @@
 class ContactsController < ApplicationController
-	before_filter :user_check, only: [:create]
 
 	def index
 	end
 
 	def callback
+		@app_user_id = current_app_user.id
 		@contacts = request.env['omnicontacts.contacts']
+		@contacts.each do |c|
+			UserContact.create(name: c[:name], first_name: c[:first_name], last_name: c[:last_name], email: c[:email], app_user_id: current_app_user.id)
+		end
 	end
 
 	def save
-		@contacts = request.env['omnicontacts.contacts']
-		@contacts.each do |c|
-			contact = params.require(c[:name], :app_user_id).permit(c[:first_name], c[:last_name], c[:email])
-			UserContact.create contact
-		end
-		redirect_to 'save'
 	end
-
-  def user_check
-    if app_user_signed_in? == true
-    	render 'save'
-    else
-      redirect_to '/app_users/sign_in'
-      flash[:notice] = "You must be logged in to save contacts."
-    end
-  end
-
-
 
 end
 

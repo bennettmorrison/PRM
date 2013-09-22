@@ -1,8 +1,7 @@
 <h1>Contacts</h1>
 <p>Here's the contacts that we received.</p>
-<p>If these are the contacts you want, import them.  Otherwise, let's go back to the beginning.</p>
-<div class = "btn"><%= link_to('Import these contacts', contacts_google_save_path) %></div>
-<div class = "btn"><%= link_to('Start over', root_path) %></div>
+<p>The user id is <%= @app_user_id %>
+<p>These contacts have been imported.  The next step is to create a purpose.</p>
 <p></p>
 
 <table class="table">
