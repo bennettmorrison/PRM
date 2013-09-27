@@ -25,7 +25,7 @@ class RelationshipPurposesController < ApplicationController
 	def show
 		@relationship = RelationshipPurpose.find(params[:id])
 		# @contactrelationships = ContactRelationship.where(:relationship_purpose_id => @relationship)
-		@blah = @relationship.user_contacts
+		@contactrelationship = @relationship.user_contacts
 		@contacts = UserContact.where(:app_user_id => current_app_user.id)
 	end
 
@@ -36,6 +36,10 @@ class RelationshipPurposesController < ApplicationController
     else
       render 'edit'
     end
+	end
+
+	def add
+		@contact = UserContact.find(params[:id])
 	end
 
 	private

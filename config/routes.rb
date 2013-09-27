@@ -6,7 +6,10 @@ PRM::Application.routes.draw do
   # You can have the root of your site routed with "root"
   get "/contacts/google/callback" => "contacts#callback"
   resources :user_contacts
-  resources :relationship_purposes
+  resources :relationship_purposes do
+    resources :user_contacts
+  end
+  # get 'relationship_purposes/add/:id/:user_contact_id' => "relationship_purposes#add", as: 'relationship_purposes#add'
   root 'contacts#index'
 
   # Example of regular route:
