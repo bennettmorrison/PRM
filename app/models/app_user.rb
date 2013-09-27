@@ -7,4 +7,5 @@ class AppUser < ActiveRecord::Base
 
 
   has_many :user_contacts
+  has_many :relationship_purposes
 end
