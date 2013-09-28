@@ -24,7 +24,7 @@ class RelationshipPurposesController < ApplicationController
 
 	def show
 		@relationship = RelationshipPurpose.find(params[:id])
-		# @contactrelationships = ContactRelationship.where(:relationship_purpose_id => @relationship)
+		# @contactrelationship = ContactRelationship.where(:relationship_purpose_id => @relationship)
 		@contactrelationship = @relationship.user_contacts
 		@contacts = UserContact.where(:app_user_id => current_app_user.id)
 	end
