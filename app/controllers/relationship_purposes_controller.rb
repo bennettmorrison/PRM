@@ -42,6 +42,15 @@ class RelationshipPurposesController < ApplicationController
 		@contact = UserContact.find(params[:id])
 	end
 
+	def destroy
+		@relationship = RelationshipPurpose.find(params[:id])
+    if @relationship.present?
+    	@relationship.destroy
+    end
+    redirect_to relationship_purposes_path
+
+  end
+
 	private
 
 	def relationship_params

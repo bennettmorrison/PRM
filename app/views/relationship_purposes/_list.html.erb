@@ -1,16 +1,16 @@
 <table class="table">
 		<tr>
 		<th>Relationship</th>
+		<th>Description</th>
 		<th>Importance</th>
-		<th></th>
-		<th></th>
+		<th>Manage Members</th>
 		</tr>
 			<% @relationships.each do |r|%>
 				<tr>
-				<td><%=r[:name]%></td>
+				<td><%=link_to r[:name], edit_relationship_purpose_path(r) %></td>
+				<td><%=r[:description]%></td>
 				<td><%=r[:priority]%></td>
-				<td><%=link_to 'Edit Relationship', edit_relationship_purpose_path(r) %></td>
-				<td><%=link_to 'Members', (r) %></td>
+				<td><%=link_to 'Manage Members', (r) %></td>
 				</tr>	
 			<%end%>
 </table>
