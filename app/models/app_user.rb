@@ -6,4 +6,9 @@ class AppUser < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
+
+  has_many :user_contacts
+  has_many :relationship_purposes
 end
+

@@ -1,2 +1,25 @@
-<h1>Contacts</h1>
+
+<h1>We got contacts!</h1>
+<p>Here are the <%= @contacts.count %> contacts that we received.</p>
+<p>Your user id is <%= @app_user_id %>, but you won't need that </p>
+<p>These contacts have been imported.</p>
+<p>The next step is to define relationships.</p>
+<p></p>
+
+<table class="table">
+		<tr>
+		<th>Name</th>
+		<th>First</th>
+		<th>Last</th>
+		<th>Email</th>
+		</tr>
+			<% @contacts.each do |c|%>
+				<tr>
+				<td><%=c[:name]%></td>
+				<td><%=c[:first_name]%></td>
+				<td><%=c[:last_name]%></td>
+				<td><%=c[:email]%></td>
+				</tr>	
+			<%end%>
+</table>
 

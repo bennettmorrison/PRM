@@ -1,0 +1,39 @@
+<h1><%= @relationship.name %></h1>
+
+<p><%= @relationship.description %></p>
+
+<div class="span5">
+<p>These are people in this relationship.</p>
+<table class="table">
+		<tr>
+		<th></th>
+		<th>Name</th>
+		<th>Email</th>
+		</tr>
+			<% @contactrelationship.each do |c|%>
+				<tr>
+				<td><%= link_to 'Remove', remove_path(@relationship, c[:id]), method: :delete %></td>
+				<td><%=c[:name]%></td>
+				<td><%=c[:email]%></td>
+				</tr>	
+			<%end%>
+</table>
+</div>
+
+<div class="span5">
+<p>And this is all the loaded contacts.</p>
+<table class="table">
+		<tr>
+		<th></th>
+		<th>Name</th>
+		<th>Email</th>
+		</tr>
+			<% @contacts.each do |c|%>
+				<tr>
+				<td><%= link_to 'Add', create_path(@relationship, c[:id]), method: :post %></td>
+				<td><%=c[:name]%></td>
+				<td><%=c[:email]%></td>
+				</tr>	
+			<%end%>
+</table>
+</div>

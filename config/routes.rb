@@ -4,7 +4,13 @@ PRM::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  get "/auth/:provider/callback" => "contacts#callback"
+
+  get "/contacts/google/callback" => "contacts#callback"
+  resources :user_contacts
+  resources :relationship_purposes
+  post "/relationship_purposes/:relationship_purpose_id/user_contacts/:id" => 'user_contacts#create', as: :create
+  delete "/relationship_purposes/:relationship_purpose_id/user_contacts/:id" => 'user_contacts#destroy', as: :remove
+  # get 'relationship_purposes/add/:id/:user_contact_id' => "relationship_purposes#add", as: 'relationship_purposes#add'
   root 'contacts#index'
 
   # Example of regular route:
