@@ -14,4 +14,10 @@ class UserContactsController < ApplicationController
 		end
 	end
 
+	def destroy
+		r = RelationshipPurpose.find(params[:relationship_purpose_id])
+		r.user_contacts.delete(params[:id])
+		redirect_to relationship_purpose_path(r)
+	end
+
 end

@@ -1,2 +1,7 @@
+<div class="span12">
 <h1>Edit this relationship</h1>
 <%= render 'form' %>
+  <p></p><p>
+  <%= link_to 'Destroy', @relationship, method: :delete, class: 'btn-danger btn', data: { confirm: 'Are you sure?' } %>
+</p>
+</div>

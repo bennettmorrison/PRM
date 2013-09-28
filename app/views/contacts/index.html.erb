@@ -1,26 +1,30 @@
-<p>This app is designed to sort contacts by user-generated relationships.</p>
+<div class="span12 body">
+	<p>This app is designed to sort contacts by user-generated relationships.</p>
+</div>
 
 	<% if app_user_signed_in? == true %>
+		<div class="span12">
 		<h4>You're signed in! Welcome!</h4>
-
 		<p>From here, you'll need to decide whether to add contacts or check your relationships.</p>
-		<div class="span5">
+		</div>
+		<div class="span5 box">
 		<h4>Add Contacts</h4>
 		<p>You have <%= @contacts.count %> contacts loaded.  If you want more, get contacts.</p>
 			<p><div class="btn"><%= link_to('Get Gmail Contacts', 'contacts/gmail') %></div></p>
 		</div>
-		<div class="span5">
+		<div class="span5 box">
 		<h4>Manage Relationships</h4>
 		<p>If <%= @contacts.count %> contacts is enough, let's start looking at your relationships</p>
 			<div class="btn"><%= link_to('Check out Relationships', 	relationship_purposes_path) %></div>
 		</div>
+
 	<% else %>
 	<div class="hero-unit">
-		<p>First step is to get sign in:</p>
-		<div class="btn">
+		<p>Welcome to the Relationship App.  This app will import contacts and categorize them by user-defined relationships.</p>
+		<div class="primary-btn btn">
     <%= link_to('Sign up', new_app_user_registration_path)  %>
 		</div>
-		<div class="btn">
+		<div class="success-btn btn">
     <%= link_to('Login', new_app_user_session_path)  %>
 		</div>
 	</div>

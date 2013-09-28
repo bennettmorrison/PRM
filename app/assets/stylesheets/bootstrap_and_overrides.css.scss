@@ -8,8 +8,7 @@ body {
 }
 
 .navbar-inner {
-
-  font-family: "Rokkitt";
+  font-family: "Gudea";
 
 }
 
@@ -17,7 +16,7 @@ body {
   padding: 8px 20px 12px;
   font-size: 20px;
   color: #000000;
-  font-family: "Rokkitt"
+  font-family: "Gudea"
 }
 
 .navbar .divider-vertical {
@@ -36,4 +35,11 @@ body {
 .navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
   color: #707070;
+}
+
+.box {
+  background-color: #ffffff;
+  padding:10px;
+  border-radius:25px;
+  box-shadow: 5px 5px 5px #888888;
 }
